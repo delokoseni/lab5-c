@@ -2,7 +2,6 @@
 
 class Subordinates
 {
-	friend Subordinates operator + (Subordinates s1, Subordinates s2);
 public:
 	Subordinates(int a, float A);
 	Subordinates(int allfields);
@@ -12,6 +11,7 @@ public:
 	float averageseniority(int number);
 	void set(Subordinates s);
 	int getamount();
+	Subordinates operator + (Subordinates s1);
 	Subordinates& operator++(); //префиксный
 	Subordinates operator++(int); //постфиксный
 private:

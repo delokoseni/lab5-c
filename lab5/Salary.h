@@ -4,7 +4,6 @@
 
 class Salary
 {
-    friend Salary operator + (Salary s1, Salary s2);
 public:
     Salary(int overtimecost, int weekendcost, int exppercent, int subspercent, bool expstatus, \
         bool subsstatus);
@@ -15,6 +14,7 @@ public:
     void output();
     int overtimeweekends(int overtime, int weekends);
     int allmoney(int salary, Experience exp, Jobtitle jt);
+    Salary operator + (Salary s1);
     Salary& operator++(); //префиксный
     Salary operator++(int); //постфиксный
 private:

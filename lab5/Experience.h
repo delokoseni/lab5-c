@@ -2,7 +2,6 @@
 
 class Experience
 {
-	friend Experience operator + (Experience e1, Experience e2);
 public:
 	Experience(int w, int a, int m);
 	Experience(int x);
@@ -11,6 +10,7 @@ public:
 	void output();
 	float allexp();
 	void set(Experience e);
+	Experience operator + (Experience e1);
 	Experience& operator++(); //префиксный
 	Experience operator++(int); //постфиксный
 private:

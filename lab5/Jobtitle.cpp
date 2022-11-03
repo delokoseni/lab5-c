@@ -105,11 +105,11 @@ void Jobtitle::editjtitle(string jtitle, string add) {
 }
 
 //перегрузка оператора +
-Jobtitle operator + (Jobtitle j1, Jobtitle j2) {
-	j1.hourlycost += j2.hourlycost;
-	j1.subs = j1.subs + j2.subs;
-	j1.jtitle += j2.jtitle;
-	return j1;
+Jobtitle Jobtitle::operator + (Jobtitle j1){
+	hourlycost += j1.hourlycost;
+	subs = j1.subs + j1.subs;
+	jtitle += j1.jtitle;
+	return *this;
 }
 
 //перегрузка оператора ++ префиксный

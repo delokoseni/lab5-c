@@ -136,20 +136,20 @@ int Salary::allmoney(int salary, Experience exp, Jobtitle jt) {
 }
 
 //перегрузка оператора +
-Salary operator + (Salary s1, Salary s2) {
-    s1.overtimecost += s2.overtimecost;
-    s1.weekendcost += s2.weekendcost;
-    s1.exppercent += s2.exppercent;
-    s1.subspercent += s2.subspercent;
-    if (s1.expstatus || s2.expstatus)
-        s1.expstatus = true;
+Salary Salary::operator + (Salary s1) {
+    overtimecost += s1.overtimecost;
+    weekendcost += s1.weekendcost;
+    exppercent += s1.exppercent;
+    subspercent += s1.subspercent;
+    if (expstatus || s1.expstatus)
+        expstatus = true;
     else
-        s1.expstatus = false;
-    if (s1.subsstatus || s2.subsstatus)
-        s1.subsstatus = true;
+        expstatus = false;
+    if (subsstatus || s1.subsstatus)
+        subsstatus = true;
     else
-        s1.subsstatus = false;
-    return s1;
+        subsstatus = false;
+    return *this;
 }
 
 //перегрузка оператора ++ префиксный

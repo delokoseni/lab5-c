@@ -96,10 +96,10 @@ int Subordinates::getamount() {
 }
 
 //перегрузка оператора +
-Subordinates operator + (Subordinates s1, Subordinates s2) {
-	s1.amount += s2.amount;
-	s1.asos += s2.asos;
-	return s1;
+Subordinates Subordinates::operator + (Subordinates s1) {
+	amount += s1.amount;
+	asos += s1.asos;
+	return *this;
 }
 
 //перегрузка оператора ++ префиксный

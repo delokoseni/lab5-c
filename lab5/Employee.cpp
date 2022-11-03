@@ -113,11 +113,11 @@ Employee& Employee::getadress() {
 }
 
 //перегрузка оператора +
-Employee operator + (Employee e1, Employee e2) {
-	e1.exp = e1.exp + e2.exp;
-	e1.hour = e1.hour + e2.hour;
-	e1.jt = e1.jt + e2.jt;
-	return e1;
+Employee Employee::operator + (Employee e1) {
+	exp = exp + e1.exp;
+	hour = hour + e1.hour;
+	jt = jt + e1.jt;
+	return *this;
 }
 
 //перегрузка оператора ++ префиксный
