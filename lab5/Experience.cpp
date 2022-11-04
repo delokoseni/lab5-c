@@ -104,7 +104,7 @@ Experience Experience::operator++(int) {
 }
 
 //метод записи в файл
-void Experience::tofile(fstream file) {
+void Experience::tofile(ofstream file) {
 	file << workingyears << "\t";
 	file << army << "\t";
 	file << maternityleave << "\t";

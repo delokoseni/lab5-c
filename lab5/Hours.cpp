@@ -117,7 +117,7 @@ Hours Hours::operator++(int) {
 }
 
 //метод записи в файл
-void Hours::tofile(fstream file) {
+void Hours::tofile(ofstream file) {
 	file << normal << "\t";
 	file << overtime << "\t";
 	file << weekends << "\t";

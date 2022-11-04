@@ -1,4 +1,6 @@
 #pragma once
+#include <fstream>
+using namespace std;
 
 class Experience
 {
@@ -13,7 +15,7 @@ public:
 	Experience operator + (Experience e1);
 	Experience& operator++(); //префиксный
 	Experience operator++(int); //постфиксный
-	void tofile(fstream file);
+	void tofile(ofstream file);
 private:
 	int workingyears; //кол-во реально отработанных лет
 	int army; //кол-во лет в армии, если сохранялось рабочее место

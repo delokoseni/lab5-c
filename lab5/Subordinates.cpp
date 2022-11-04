@@ -1,5 +1,6 @@
 #include "Subordinates.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -114,4 +115,10 @@ Subordinates Subordinates::operator++(int) {
 	Subordinates temp = *this;
 	++* this;
 	return temp;
+}
+
+//метод записи в файл
+void Subordinates::tofile(ofstream file) {
+	file << amount << "\t";
+	file << asos << "\t";
 }
