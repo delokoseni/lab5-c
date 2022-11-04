@@ -3,6 +3,7 @@
 #include "Hours.h"
 #include "Jobtitle.h"
 #include "Subordinates.h"
+#include "checkfileextension.h"
 #include <fstream>
 using namespace std;
 

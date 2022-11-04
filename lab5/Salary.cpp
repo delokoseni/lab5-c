@@ -169,3 +169,23 @@ Salary Salary::operator++(int) {
     ++* this;
     return temp;
 }
+
+//метод записи в файл
+void Salary::tofile(ofstream& file) {
+    file << overtimecost << "\t";
+    file << weekendcost << "\t";
+    file << exppercent << "\t";
+    file << subspercent << "\t";
+    file << expstatus << "\t";
+    file << subsstatus << "\t";
+}
+
+//метод записи из файла
+void Salary::getfromfile(ifstream& file) {
+    file >> overtimecost;
+    file >> weekendcost;
+    file >> exppercent;
+    file >> subspercent;
+    file >> expstatus;
+    file >> subsstatus;
+}

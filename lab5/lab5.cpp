@@ -1,5 +1,4 @@
 ﻿#include "Employee.h"
-#include "checkfileextension.h"
 #include <conio.h>
 #include <Windows.h>
 #include <string>
@@ -22,12 +21,9 @@ int main()
     int a = 6;
     float b = 1.2;
     Subordinates sub3(a, b), sub;
-    string str = "Менеджер по продажам", fname = "text.txts";
+    string str = "Менеджер по продажам", fname = "text.txt";
     Jobtitle jt3(str, over, sub3);
     Employee emp, emp3(exp3, h3, jt3);
-
-
-
     ofstream file;
     file.exceptions(ofstream::badbit | ofstream::failbit);
     try
@@ -36,16 +32,13 @@ int main()
             throw 0;
         file.open(fname, ios_base::app);
         emp3.tofile(file);
+        file.close();
     }
     catch (const int ex1)
     {
         cout << "Использовано недопустимое расширение файла." << endl;
         cout << "Допустимое расширение: \".txt\"" << endl;
     }
-    //file.close();
-
-
-
     ifstream file1;
     file1.exceptions(ifstream::badbit | ifstream::failbit);
     try
@@ -57,12 +50,12 @@ int main()
         emp3.output();
         cout << endl;
         emp.output();
+        file1.close();
     }
     catch (const int ex2)
     {
         cout << "Использовано недопустимое расширение файла." << endl;
         cout << "Допустимое расширение: \".txt\"" << endl;
     }
-    //file1.close();
     return 0;
 }

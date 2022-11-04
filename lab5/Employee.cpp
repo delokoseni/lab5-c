@@ -144,7 +144,7 @@ void Employee::tofile(ofstream& file) {
 	jt.tofile(file);
 }
 
-//ìåòîä âûâîäà èç ôàéëà
+//ìåòîä çàïèñè èç ôàéëà
 void Employee::getfromfile(ifstream& file) {
 	file >> counter;
 	file >> id;
