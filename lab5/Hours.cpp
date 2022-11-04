@@ -1,6 +1,7 @@
 #include "Hours.h"
 #include "Salary.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //конструктор класса hours со всеми параметрами
@@ -113,4 +114,11 @@ Hours Hours::operator++(int) {
 	Hours temp = *this;
 	++* this;
 	return temp;
+}
+
+//метод записи в файл
+void Hours::tofile(fstream file) {
+	file << normal << "\t";
+	file << overtime << "\t";
+	file << weekends << "\t";
 }
