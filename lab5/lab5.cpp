@@ -22,38 +22,47 @@ int main()
     int a = 6;
     float b = 1.2;
     Subordinates sub3(a, b), sub;
-    string str = "Менеджер по продажам", fname = "text.txt";
+    string str = "Менеджер по продажам", fname = "text.txts";
     Jobtitle jt3(str, over, sub3);
     Employee emp, emp3(exp3, h3, jt3);
+
+
+
     ofstream file;
     file.exceptions(ofstream::badbit | ofstream::failbit);
     try
     {
+        if (!checkfileextension(fname))
+            throw 0;
         file.open(fname, ios_base::app);
         emp3.tofile(file);
     }
-    catch (const std::exception& ex1)
+    catch (const int ex1)
     {
-        cout << ex1.what();
+        cout << "Использовано недопустимое расширение файла." << endl;
+        cout << "Допустимое расширение: \".txt\"" << endl;
     }
-    file.close();
+    //file.close();
+
+
+
     ifstream file1;
     file1.exceptions(ifstream::badbit | ifstream::failbit);
     try
     {
-        if (checkfileextension(fname)) {
-            file1.open(fname);
-            emp.getfromfile(file1);
-            emp3.output();
-            cout << endl;
-            emp.output();
-        }
+        if(!checkfileextension(fname))
+            throw 0;
+        file1.open(fname);
+        emp.getfromfile(file1);
+        emp3.output();
+        cout << endl;
+        emp.output();
     }
-    catch (const ifstream::failure& ex2)
+    catch (const int ex2)
     {
-        cout << ex2.what() << endl;
-        cout << ex2.code() << endl;;
+        cout << "Использовано недопустимое расширение файла." << endl;
+        cout << "Допустимое расширение: \".txt\"" << endl;
     }
-    file1.close();
+    //file1.close();
     return 0;
 }
