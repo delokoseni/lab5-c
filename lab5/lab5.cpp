@@ -9,7 +9,7 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    int pos;
+    int i, j;
     int years = 10;
     int armyyears = 1;
     int materyears = 0;
@@ -23,7 +23,7 @@ int main()
     Subordinates sub3(a, b), sub;
     string str = "Менеджер по продажам", fname = "text.txt";
     Jobtitle jt3(str, over, sub3);
-    Employee emp, emp3(exp3, h3, jt3);
+    Employee emp, emp3(exp3, h3, jt3), arr1[3], arr2[2][2];
     ofstream file;
     file.exceptions(ofstream::badbit | ofstream::failbit);
     try
@@ -46,10 +46,17 @@ int main()
         if(!checkfileextension(fname))
             throw 0;
         file1.open(fname);
-        emp.getfromfile(file1);
-        emp3.output();
+        for (i = 0; i < 3; i++) {
+            arr1[i].getfromfile(file1);
+            arr1[i].output();
+        }
         cout << endl;
-        emp.output();
+        for (i = 0; i < 2; i++) {
+            for (j = 0; j < 2; j++) {
+                arr2[i][j].getfromfile(file1);
+                arr2[i][j].output();
+            }
+        }
         file1.close();
     }
     catch (const int ex2)
