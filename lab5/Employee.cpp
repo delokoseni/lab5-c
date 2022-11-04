@@ -137,7 +137,6 @@ Employee Employee::operator++(int) {
 
 //метод записи в файл
 void Employee::tofile(ofstream& file) {
-	file << counter << "\t";
 	file << id << "\t";
 	exp.tofile(file);
 	hour.tofile(file);
@@ -146,9 +145,13 @@ void Employee::tofile(ofstream& file) {
 
 //метод записи из файла
 void Employee::getfromfile(ifstream& file) {
-	file >> counter;
-	file >> id;
-	exp.getfromfile(file);
-	hour.getfromfile(file);
-	jt.getfromfile(file);
+	try {
+		file >> id;
+		exp.getfromfile(file);
+		hour.getfromfile(file);
+		jt.getfromfile(file);
+	}
+	catch(exception& e) {
+		throw exception("В файле недостаточно данных для записи.\n");
+	}
 }

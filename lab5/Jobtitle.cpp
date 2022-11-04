@@ -137,17 +137,23 @@ void Jobtitle::tofile(ofstream& file) {
 void Jobtitle::getfromfile(ifstream& file) {
 	int flag = 0;
 	string buff;
-	file >> jtitle; 
-	while (!flag) {
-		file >> buff;
-		if (buff[0] >= '0' && buff[0] <= '9') {
-			hourlycost = stoi(buff);
-			flag = 1;
+	try {
+		file >> jtitle;
+		while (!flag) {
+			file >> buff;
+			if (buff[0] >= '0' && buff[0] <= '9') {
+				hourlycost = stoi(buff);
+				flag = 1;
+			}
+			else {
+				jtitle += " ";
+				jtitle += buff;
+			}
 		}
-		else {
-			jtitle += " ";
-			jtitle += buff;
-		}
+		subs.getfromfile(file);
 	}
-	subs.getfromfile(file);
+	catch (exception& e) {
+		throw exception("В файле недостаточно данных для записи.\n");
+	}
+
 }

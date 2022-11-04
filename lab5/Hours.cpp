@@ -125,7 +125,12 @@ void Hours::tofile(ofstream& file) {
 
 //метод вывода из файла
 void Hours::getfromfile(ifstream& file) {
-	file >> normal;
-	file >> overtime;
-	file >> weekends;
+	try {
+		file >> normal;
+		file >> overtime;
+		file >> weekends;
+	}
+	catch (exception& e) {
+		throw exception("В файле недостаточно данных для записи.\n");
+	}
 }

@@ -123,8 +123,13 @@ void Subordinates::tofile(ofstream& file) {
 	file << asos << "\n";
 }
 
-//метод вывода из файла
+//метод записи из файла
 void Subordinates::getfromfile(ifstream& file) {
-	file >> amount;
-	file >> asos;
+	try {
+		file >> amount;
+		file >> asos;
+	}
+	catch (exception& e) {
+		throw exception("В файле недостаточно данных для записи.\n");
+	}
 }

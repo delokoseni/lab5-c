@@ -182,10 +182,15 @@ void Salary::tofile(ofstream& file) {
 
 //метод записи из файла
 void Salary::getfromfile(ifstream& file) {
-    file >> overtimecost;
-    file >> weekendcost;
-    file >> exppercent;
-    file >> subspercent;
-    file >> expstatus;
-    file >> subsstatus;
+    try {
+        file >> overtimecost;
+        file >> weekendcost;
+        file >> exppercent;
+        file >> subspercent;
+        file >> expstatus;
+        file >> subsstatus;
+    }
+    catch (exception& e) {
+        throw exception("В файле недостаточно данных для записи.\n");
+    }
 }

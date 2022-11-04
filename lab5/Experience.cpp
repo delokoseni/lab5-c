@@ -110,9 +110,14 @@ void Experience::tofile(ofstream& file) {
 	file << maternityleave << "\t";
 }
 
-//метод вывода из файла
+//метод записи из файла
 void Experience::getfromfile(ifstream& file) {
-	file >> workingyears;
-	file >> army;
-	file >> maternityleave;
+	try {
+		file >> workingyears;
+		file >> army;
+		file >> maternityleave;
+	}
+	catch (exception& e) {
+		throw exception("В файле недостаточно данных для записи.\n");
+	}
 }
