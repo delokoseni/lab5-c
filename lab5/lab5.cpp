@@ -1,11 +1,10 @@
 ﻿#include "Employee.h"
+#include "checkfileextension.h"
 #include <conio.h>
 #include <Windows.h>
 #include <string>
 #include <stdio.h>
 #include <iostream>
-
-
 
 int main()
 {
@@ -42,13 +41,13 @@ int main()
     file1.exceptions(ifstream::badbit | ifstream::failbit);
     try
     {
-        pos = fname.rfind('.');
-
-        file1.open(fname);
-        emp.getfromfile(file1);
-        emp3.output();
-        cout << endl;
-        emp.output();
+        if (checkfileextension(fname)) {
+            file1.open(fname);
+            emp.getfromfile(file1);
+            emp3.output();
+            cout << endl;
+            emp.output();
+        }
     }
     catch (const ifstream::failure& ex2)
     {
