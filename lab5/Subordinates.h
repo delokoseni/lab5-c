@@ -17,6 +17,7 @@ public:
 	Subordinates& operator++(); //префиксный
 	Subordinates operator++(int); //постфиксный
 	void tofile(ofstream& file);
+	void getfromfile(ifstream& file);
 private:
 	int amount; //кол-во подчиненных
 	float asos; //average seniority of subordinates - средний стаж подчиненных

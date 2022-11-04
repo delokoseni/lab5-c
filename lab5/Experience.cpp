@@ -109,3 +109,10 @@ void Experience::tofile(ofstream& file) {
 	file << army << "\t";
 	file << maternityleave << "\t";
 }
+
+//לועמה גûגמהא טח פאיכא
+void Experience::getfromfile(ifstream& file) {
+	file >> workingyears;
+	file >> army;
+	file >> maternityleave;
+}

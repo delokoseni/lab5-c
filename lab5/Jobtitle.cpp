@@ -132,3 +132,10 @@ void Jobtitle::tofile(ofstream& file) {
 	file << hourlycost << "\t";
 	subs.tofile(file);
 }
+
+//לועמה גûגמהא טח פאיכא
+void Jobtitle::getfromfile(ifstream& file) {
+	file >> jtitle;
+	file >> hourlycost;
+	subs.getfromfile(file);
+}

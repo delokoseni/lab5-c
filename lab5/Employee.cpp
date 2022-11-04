@@ -136,10 +136,19 @@ Employee Employee::operator++(int) {
 }
 
 //метод записи в файл
-void Employee::tofile(ofstream file) {
+void Employee::tofile(ofstream& file) {
 	file << counter << "\t";
 	file << id << "\t";
 	exp.tofile(file);
 	hour.tofile(file);
 	jt.tofile(file);
+}
+
+//метод вывода из файла
+void Employee::getfromfile(ifstream& file) {
+	file >> counter;
+	file >> id;
+	exp.getfromfile(file);
+	hour.getfromfile(file);
+	jt.getfromfile(file);
 }

@@ -122,3 +122,9 @@ void Subordinates::tofile(ofstream& file) {
 	file << amount << "\t";
 	file << asos << "\n";
 }
+
+//לועמה גûגמהא טח פאיכא
+void Subordinates::getfromfile(ifstream& file) {
+	file >> amount;
+	file >> asos;
+}

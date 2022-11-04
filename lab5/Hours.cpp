@@ -122,3 +122,10 @@ void Hours::tofile(ofstream& file) {
 	file << overtime << "\t";
 	file << weekends << "\t";
 }
+
+//לועמה גûגמהא טח פאיכא
+void Hours::getfromfile(ifstream& file) {
+	file >> normal;
+	file >> overtime;
+	file >> weekends;
+}
