@@ -1,5 +1,6 @@
 #include "Experience.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //конструктор класса experience со всеми параметрами
@@ -100,4 +101,11 @@ Experience Experience::operator++(int) {
 	Experience temp = *this;
 	++* this;
 	return temp;
+}
+
+//метод записи в файл
+void Experience::tofile(fstream file) {
+	file << workingyears << "\t";
+	file << army << "\t";
+	file << maternityleave << "\t";
 }
