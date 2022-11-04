@@ -127,7 +127,7 @@ Jobtitle Jobtitle::operator++(int) {
 }
 
 //метод записи в файл
-void Jobtitle::tofile(ofstream file) {
+void Jobtitle::tofile(ofstream& file) {
 	file << jtitle << "\t";
 	file << hourlycost << "\t";
 	subs.tofile(file);

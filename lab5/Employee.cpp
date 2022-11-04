@@ -134,3 +134,12 @@ Employee Employee::operator++(int) {
 	++* this;
 	return temp;
 }
+
+//метод записи в файл
+void Employee::tofile(ofstream file) {
+	file << counter << "\t";
+	file << id << "\t";
+	exp.tofile(file);
+	hour.tofile(file);
+	jt.tofile(file);
+}

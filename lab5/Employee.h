@@ -3,6 +3,7 @@
 #include "Hours.h"
 #include "Jobtitle.h"
 #include "Subordinates.h"
+#include <fstream>
 using namespace std;
 
 class Employee {
@@ -23,6 +24,7 @@ public:
 	Employee operator + (Employee e1);
 	Employee& operator++(); //префиксный
 	Employee operator++(int); //постфиксный
+	void tofile(ofstream file);
 private:
 	static int counter;
 	int id; //индивидуальный номер

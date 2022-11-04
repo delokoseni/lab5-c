@@ -120,5 +120,5 @@ Subordinates Subordinates::operator++(int) {
 //метод записи в файл
 void Subordinates::tofile(ofstream& file) {
 	file << amount << "\t";
-	file << asos << "\t";
+	file << asos << "\n";
 }

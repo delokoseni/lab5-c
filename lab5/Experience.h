@@ -15,7 +15,7 @@ public:
 	Experience operator + (Experience e1);
 	Experience& operator++(); //префиксный
 	Experience operator++(int); //постфиксный
-	void tofile(ofstream file);
+	void tofile(ofstream& file);
 private:
 	int workingyears; //кол-во реально отработанных лет
 	int army; //кол-во лет в армии, если сохранялось рабочее место

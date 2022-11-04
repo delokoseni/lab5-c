@@ -18,7 +18,7 @@ public:
 	Hours& operator++(); //префиксный
 	Hours operator++(int); //постфиксный
 	Hours operator + (Hours h2);
-	void tofile(ofstream file);
+	void tofile(ofstream& file);
 private:
 	int normal; //кол-во часов, отработанных по графику
 	int overtime; //кол-во часов, отработанных сверхурочно
