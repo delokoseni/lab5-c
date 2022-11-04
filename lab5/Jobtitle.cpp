@@ -133,9 +133,21 @@ void Jobtitle::tofile(ofstream& file) {
 	subs.tofile(file);
 }
 
-//לועמה גûגמהא טח פאיכא
+//לועמה גגמהא טח פאיכא
 void Jobtitle::getfromfile(ifstream& file) {
-	file >> jtitle;
-	file >> hourlycost;
+	int flag = 0;
+	string buff;
+	file >> jtitle; 
+	while (!flag) {
+		file >> buff;
+		if (buff[0] >= '0' && buff[0] <= '9') {
+			hourlycost = stoi(buff);
+			flag = 1;
+		}
+		else {
+			jtitle += " ";
+			jtitle += buff;
+		}
+	}
 	subs.getfromfile(file);
 }

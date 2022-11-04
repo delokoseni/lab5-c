@@ -5,10 +5,13 @@
 #include <stdio.h>
 #include <iostream>
 
+
+
 int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+    int pos;
     int years = 10;
     int armyyears = 1;
     int materyears = 0;
@@ -20,33 +23,37 @@ int main()
     int a = 6;
     float b = 1.2;
     Subordinates sub3(a, b), sub;
-    string str = "Менеджер";
+    string str = "Менеджер по продажам", fname = "text.txt";
     Jobtitle jt3(str, over, sub3);
     Employee emp, emp3(exp3, h3, jt3);
     ofstream file;
     file.exceptions(ofstream::badbit | ofstream::failbit);
     try
     {
-        file.open("text.txt");
+        file.open(fname, ios_base::app);
         emp3.tofile(file);
     }
-    catch (const std::exception&)
+    catch (const std::exception& ex1)
     {
-        cout << "Ошибка открытия файла.\n";
+        cout << ex1.what();
     }
     file.close();
     ifstream file1;
     file1.exceptions(ifstream::badbit | ifstream::failbit);
     try
     {
-        file1.open("text.txt");
+        pos = fname.rfind('.');
+
+        file1.open(fname);
         emp.getfromfile(file1);
         emp3.output();
+        cout << endl;
         emp.output();
     }
-    catch (const std::exception&)
+    catch (const ifstream::failure& ex2)
     {
-        cout << "Ошибка открытия файла.\n";
+        cout << ex2.what() << endl;
+        cout << ex2.code() << endl;;
     }
     file1.close();
     return 0;
