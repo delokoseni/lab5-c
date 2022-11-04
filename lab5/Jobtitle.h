@@ -1,5 +1,6 @@
 #pragma once
 #include "Subordinates.h"
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -21,6 +22,7 @@ public:
 	Jobtitle operator + (Jobtitle j1);
 	Jobtitle& operator++(); //префиксный
 	Jobtitle operator++(int); //постфиксный
+	void tofile(ofstream file);
 private:
 	string jtitle; //наименование должности
 	int hourlycost; //стоимость часа работы
