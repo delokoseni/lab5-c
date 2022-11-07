@@ -1,6 +1,7 @@
 #include "Salary.h"
 #include "Experience.h"
 #include "Jobtitle.h"
+#include "checkfileextension.h"
 #include <iostream>
 using namespace std;
 
@@ -171,7 +172,9 @@ Salary Salary::operator++(int) {
 }
 
 //метод записи в файл
-void Salary::tofile(ofstream& file) {
+void Salary::tofile(ofstream& file, string filename) {
+    if (!checkfileextension(filename))
+        throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
     file << overtimecost << "\t";
     file << weekendcost << "\t";
     file << exppercent << "\t";
@@ -181,7 +184,9 @@ void Salary::tofile(ofstream& file) {
 }
 
 //метод записи из файла
-void Salary::getfromfile(ifstream& file) {
+void Salary::getfromfile(ifstream& file, string filename) {
+    if (!checkfileextension(filename))
+        throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
     try {
         file >> overtimecost;
         file >> weekendcost;
@@ -191,6 +196,6 @@ void Salary::getfromfile(ifstream& file) {
         file >> subsstatus;
     }
     catch (exception& e) {
-        throw exception("В файле недостаточно данных для записи.\n");
+        throw exception("В файле недостаточно данных для записи  или неверно указано имя файла.\n");
     }
 }

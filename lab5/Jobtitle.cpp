@@ -1,4 +1,5 @@
 #include "Jobtitle.h"
+#include "checkfileextension.h"
 #include "Subordinates.h"
 #include <iostream>
 #include <string>
@@ -127,14 +128,18 @@ Jobtitle Jobtitle::operator++(int) {
 }
 
 //метод записи в файл
-void Jobtitle::tofile(ofstream& file) {
+void Jobtitle::tofile(ofstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
 	file << jtitle << "\t";
 	file << hourlycost << "\t";
-	subs.tofile(file);
+	subs.tofile(file, filename);
 }
 
 //метод ввода из файла
-void Jobtitle::getfromfile(ifstream& file) {
+void Jobtitle::getfromfile(ifstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
 	int flag = 0;
 	string buff;
 	try {
@@ -150,10 +155,10 @@ void Jobtitle::getfromfile(ifstream& file) {
 				jtitle += buff;
 			}
 		}
-		subs.getfromfile(file);
+		subs.getfromfile(file, filename);
 	}
 	catch (exception& e) {
-		throw exception("В файле недостаточно данных для записи.\n");
+		throw exception("В файле недостаточно данных для записи  или неверно указано имя файла.\n");
 	}
 
 }

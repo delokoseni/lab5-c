@@ -1,5 +1,6 @@
 #include "Hours.h"
 #include "Salary.h"
+#include "checkfileextension.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -117,20 +118,24 @@ Hours Hours::operator++(int) {
 }
 
 //метод записи в файл
-void Hours::tofile(ofstream& file) {
+void Hours::tofile(ofstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
 	file << normal << "\t";
 	file << overtime << "\t";
 	file << weekends << "\t";
 }
 
 //метод вывода из файла
-void Hours::getfromfile(ifstream& file) {
+void Hours::getfromfile(ifstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
 	try {
 		file >> normal;
 		file >> overtime;
 		file >> weekends;
 	}
 	catch (exception& e) {
-		throw exception("В файле недостаточно данных для записи.\n");
+		throw exception("В файле недостаточно данных для записи  или неверно указано имя файла.\n");
 	}
 }
