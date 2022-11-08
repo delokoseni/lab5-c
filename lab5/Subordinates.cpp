@@ -1,4 +1,5 @@
 #include "Subordinates.h"
+#include "checkfileextension.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -118,13 +119,22 @@ Subordinates Subordinates::operator++(int) {
 }
 
 //метод записи в файл
-void Subordinates::tofile(ofstream& file) {
+void Subordinates::tofile(ofstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
 	file << amount << "\t";
 	file << asos << "\n";
 }
 
-//метод вывода из файла
-void Subordinates::getfromfile(ifstream& file) {
-	file >> amount;
-	file >> asos;
+//метод записи из файла
+void Subordinates::getfromfile(ifstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
+	try {
+		file >> amount;
+		file >> asos;
+	}
+	catch (exception& e) {
+		throw exception("В файле недостаточно данных для записи  или неверно указано имя файла.\n");
+	}
 }

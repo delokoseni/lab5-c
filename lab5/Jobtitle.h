@@ -22,8 +22,8 @@ public:
 	Jobtitle operator + (Jobtitle j1);
 	Jobtitle& operator++(); //префиксный
 	Jobtitle operator++(int); //постфиксный
-	void tofile(ofstream& file);
-	void getfromfile(ifstream& file);
+	void tofile(ofstream& file, string filename);
+	void getfromfile(ifstream& file, string filename);
 private:
 	string jtitle; //наименование должности
 	int hourlycost; //стоимость часа работы

@@ -25,8 +25,8 @@ public:
 	Employee operator + (Employee e1);
 	Employee& operator++(); //префиксный
 	Employee operator++(int); //постфиксный
-	void tofile(ofstream& file);
-	void getfromfile(ifstream& file);
+	void tofile(ofstream& file, string filename);
+	void getfromfile(ifstream& file, string filename);
 private:
 	static int counter;
 	int id; //индивидуальный номер
