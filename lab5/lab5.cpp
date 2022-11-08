@@ -64,6 +64,7 @@ int main()
         for (i = 0; i < 2; i++) {
             for (j = 0; j < 2; j++) {
                 arr2[i][j].getfromfile(file1);
+                cout << "arr2[" << i << "]" << endl;
                 arr2[i][j].output();
             }
         }
