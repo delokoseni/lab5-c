@@ -89,7 +89,7 @@ void Jobtitle::editjtitle(string jtitle, string add) {
 	int i;
 	//строковый поток
 	stringstream ss(this->jtitle);
-	//посчет количества слов в строке
+	//посдчет количества слов в строке
 	int n = count(this->jtitle.begin(), this->jtitle.end(), ' ') + 1;
 	string *words = new string[n];
 	this->jtitle = "";
