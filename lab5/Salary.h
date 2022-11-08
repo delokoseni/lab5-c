@@ -17,8 +17,8 @@ public:
     Salary operator + (Salary s1);
     Salary& operator++(); //префиксный
     Salary operator++(int); //постфиксный
-    void tofile(ofstream& file);
-    void getfromfile(ifstream& file);
+    void tofile(ofstream& file, string filename);
+    void getfromfile(ifstream& file, string filename);
 private:
     int overtimecost; //Процент увеличения оплаты сверхурочных часов 
     int weekendcost; //Процент увеличения оплаты часов отработанных в выходные

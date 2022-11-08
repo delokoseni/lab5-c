@@ -1,4 +1,5 @@
 #include "Experience.h"
+#include "checkfileextension.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -104,15 +105,24 @@ Experience Experience::operator++(int) {
 }
 
 //метод записи в файл
-void Experience::tofile(ofstream& file) {
+void Experience::tofile(ofstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
 	file << workingyears << "\t";
 	file << army << "\t";
 	file << maternityleave << "\t";
 }
 
-//метод вывода из файла
-void Experience::getfromfile(ifstream& file) {
-	file >> workingyears;
-	file >> army;
-	file >> maternityleave;
+//метод записи из файла
+void Experience::getfromfile(ifstream& file, string filename) {
+	if (!checkfileextension(filename))
+		throw exception("Использовано недопустимое расширение файла. Допустимое расширение: \".txt\".\n");
+	try {
+		file >> workingyears;
+		file >> army;
+		file >> maternityleave;
+	}
+	catch (exception& e) {
+		throw exception("В файле недостаточно данных для записи  или неверно указано имя файла.\n");
+	}
 }
